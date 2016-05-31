@@ -2,13 +2,18 @@
 
 This is the code for paper `Persistent Memory in Single Node Delay-Coupled Reservoir Computing` which is currently in review.
 
+The code in this repository runs the simulation and creates the plots in the paper
+
 ## Run
 
 1. Clone the repository
 
-		git clone
+		git clone https://github.com/Andruschenko/reservoir-persistent-memory.git
 
-2. Open Matlab, make the cloned folder the current folder and run the file `main.m`.
+2. Matlab
+	* Open Matlab
+	* Make the cloned folder (reservoir-persistent-memory) the current folder
+	* Run the script `main.m`
 
 
 ## Additional information
@@ -39,8 +44,8 @@ This project depends on some functions from the Matlab Statistics and Machine Le
 			├── simulateReservoir
 			├── trainOnReservoir
 				├── designMatrix
-				├── ridge 				// statistics toolbox
-				├── glmfit				// statistics toolbox
+				├── ridge 			// statistics toolbox
+				├── glmfit			// statistics toolbox
 				├── robustfit			// statistics toolbox
 			├── simulateReservoir
 			├── trainOnReservoir
@@ -48,7 +53,7 @@ This project depends on some functions from the Matlab Statistics and Machine Le
 				├── designMatrix
 				├── xcov 				// signal processing toolbox
 				
-		├── A_publish_plotResults_fctTask_WITH_Fdb_TASKS
+		├── plotResults_fctTask_WITH_Fdb_TASKS
 			├── dashline 				// http://www.mathworks.com/matlabcentral/fileexchange/1892-dashline
 		
 		├── main_fct_task_without_fdb
