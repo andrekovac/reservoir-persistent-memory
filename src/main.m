@@ -1,7 +1,7 @@
 %% ------------- Setup ------------------
 
-% make sure that your current folder is the project folder, i.e.
-% 'reservoir-persistent-memory' if you cloned without renaming from Github.
+% make sure that your current folder is the src folder inside the project folder, i.e.
+% 'reservoir-persistent-memory/src' if you cloned without renaming from Github.
 % Otherwise the addpath command will not work properly.
 
 % clear workspace
@@ -9,7 +9,7 @@ clear all
 % add all subfolders to the path --> make all functions in subdirectories available
 addpath(genpath(pwd));
 
-%% ------------- main script to run all scripts ------------------
+%% ------------- Parameters ------------------
 
 global stdData;                                  % number of inputs for all tasks
 
@@ -46,33 +46,49 @@ stdData.params.lag_cc           = 15;
 % General schema
 
 % 1. Simulation
-% 2. Plot task - time series / desired vs. observed / correlation
+% 2. Plots - time series / desired vs. observed / correlation
 
 %% Sine curve WITH feedback loop
 main_fct_task_with_fdb;
-close all;
+close all;  % Matlab sometimes needs to take a deep breath
 pause(0.1)
 fctTask_WITH_Fdb_plot_task;
 fctTask_WITH_Fdb_plot_task_zoom;
 fctTask_WITH_Fdb_plot_feedback_function;
+fctTask_plot_input;
 
-%% Sine curve WITHOUT feeback loop - to observe the difference
-%main_fct_task_without_fdb;
-%fctTask_WITHOUT_Fdb_plot_task;
-%fctTask_WITHOUT_Fdb_plot_task_zoom;
+%% Sine curve WITHOUT feeback loop (to observe the failing of the task)
+% main_fct_task_without_fdb;
+% close all
+% pause(0.1)
+% fctTask_WITHOUT_Fdb_plot_task;
+% fctTask_WITHOUT_Fdb_plot_task_zoom;
+% fctTask_plot_input;
 
 %% Three tasks (linear and nonlinear target function) WITH feedback loop
-%main_linear_nonLinearTask;         % with feedback loop
-%linearTask_WITH_Fdb_plot_task1;
-%linearTask_WITH_Fdb_plot_task2;
-%linearTask_WITH_Fdb_plot_task3;
-%linearTask_plot_feedback_function;
+% main_linear_nonLinearTask;         % with feedback loop
+% close all
+% pause(0.1)
+% linearTask_WITH_Fdb_plot_task1;
+% linearTask_WITH_Fdb_plot_task2;
+% linearTask_WITH_Fdb_plot_task3;
+% linearTask_plot_feedback_function;
+% linearTask_plot_input;
 
 %% Ramping task WITH feedback loop
-%main_rampingTask_with_fdb;
-%rampTask_WITH_Fdb_plot_task1;
-%rampTask_WITH_Fdb_plot_task2;
-%rampTask_WITH_Fdb_plot_task3;
+% main_rampingTask_with_fdb;
+% close all
+% pause(0.1)
+% rampTask_WITH_Fdb_plot_task1;
+% rampTask_WITH_Fdb_plot_task2;
+% rampTask_WITH_Fdb_plot_task3;
+% rampTask_WITH_fdb_feedback_function1;
+% rampTask_WITH_fdb_feedback_function2;
+% rampTask_plot_input;
 
-%% Ramping task WITHOUT feedback loop
-%main_rampingTask_without_fdb;
+%% Ramping task WITHOUT feedback loop (to observe the failing of the task)
+% main_rampingTask_without_fdb;
+% close all
+% pause(0.1)
+% rampTask_WITHOUT_Fdb_plot_task1;
+% rampTask_plot_input;
