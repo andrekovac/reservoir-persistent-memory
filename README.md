@@ -2,7 +2,10 @@
 
 This is the code for paper `Persistent Memory in Single Node Delay-Coupled Reservoir Computing` which is currently in review.
 
-The code in this repository runs the simulation and creates the plots in the paper
+It contains the complete code for the simulation and the plot generation.
+
+[Example of a plot](https://github.com/Andruschenko/reservoir-persistent-memory/files/298929/E_publish_fctTask_WITH_fdb_TASK.pdf)
+
 
 ## Run
 
