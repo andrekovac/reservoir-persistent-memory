@@ -12,16 +12,21 @@ The code in this repository runs the simulation and creates the plots in the pap
 
 2. Matlab
 	* Open Matlab
-	* Make the cloned folder (reservoir-persistent-memory) the current folder
-	* Run the script `main.m`
+	* Make the cloned folder (reservoir-persistent-memory) the current folder (i.e. navigate to that folder in Matlab and double click it, so that its contents are directly visible in the 'Current Folder' window on the left.
+	* Run the script `main.m` 
 
+## Troubleshooting
+
+* Be aware that you need to have the Matlab [Statistics and Machine Learning Toolbox](http://uk.mathworks.com/products/statistics/) as well as the [Signal Processing Toolbox](http://uk.mathworks.com/products/signal/) installed so that the project can run properly. Please see the chart in the [Structure section](#structure) below to see exactly where dependencies to these two packages occur.
 
 ## Additional information
 
+* `main.m` is the starting point. Uncomment the appropriate parts to run the simulation with the other tasks.
 * When using the provided default values, the script will take about 30 seconds to execute (tested on a Macbook Pro late 2013
 * The width of plots depends on the screen-size of your computer screen. Thus, your plots might be scaled by some factor as compared to the figures in the publication.
+* Default values are used. Alternatives are usually described in a comment at the particular location.
 
-## Structure and dependencies
+## Structure
 
 The call-structure of the project. Nested functions signify that the daughter function is called by the mother function. Thus, the mother function depends on the existence of the daughter function in order to execute properly.
 
