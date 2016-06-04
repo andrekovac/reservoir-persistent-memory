@@ -1,4 +1,14 @@
+%% ----- setup -----
+
+% make sure that your current folder is the project folder, i.e.
+% 'reservoir-persistent-memory' if you cloned without renaming from Github.
+% Otherwise the addpath command will not work properly.
+
+% clear workspace
 clear all
+% add all subfolders to the path --> make all functions in subdirectories
+% available
+addpath(genpath(pwd));
 
 %% ------------- script to get stereotype plots ------------------
 
