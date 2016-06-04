@@ -1,4 +1,4 @@
-clear d;
+% clear d;
 
 global d;                                                                          % global variabel that contains all information
 

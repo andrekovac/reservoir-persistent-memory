@@ -1,13 +1,15 @@
-close all;
+% close all;
+% clear all;
+% 
+% % Windows
+% load('.\simulation_results\stereotyp_rampingTask_WITH_fdb_data.mat')
+% % Linux
+% %load('./simulation_results/stereotyp_rampingTask_WITH_fdb_data.mat')
 
-% Windows
-%load('.\simulation_results\stereotyp_fct_task_WITH_fdb_data.mat')
-% Linux
-%load('./simulation_results/stereotyp_fct_task_WITH_fdb_data.mat')
 
 global d;
 
-%d = myData{1};
+% d = myData{1};
 
 scrsz = get(0,'ScreenSize');
 
@@ -52,7 +54,7 @@ NRMSE_vl            = d.results.errors.NRMSE_vl;
 % set papersize for saving the figure as a pdf - A4 landscape
 figure( 'PaperSize',[29.68 20.98], ...
         'Position', [ scrsz(3)/5    170         1054       300         ] );
-%                   [ left          bottom      width               height ]
+%                   [ left          bottom      width      height ]
 
 rTotal = 8;
 cTotal = 14;
@@ -62,8 +64,9 @@ rSmall = 2;
 % --------------------- plot parameters ----------------------
 
 
+
 % -------- Task number ----------
-taskNr = 1;
+taskNr = 3;
 % -------- Task number ----------
 
 
@@ -76,10 +79,7 @@ for i = 0:4
 end
 subp1 = subplot( rTotal , cTotal ,        area );
 
-time = 2000:5000;
-y = input(end-1:-1:1, time)';
-
-%plot(time, input(end-1:-1:1, time)', 'Linewidth', 2);
+time = 2000:7000;
 
 plot( time , target_vl( taskNr , time ), 'Color', [ 36/255 92/255 211/255 ] , 'LineWidth', 1);
 hold on
@@ -88,7 +88,8 @@ hold off
 
 
 % ======================== THINGS TO CHANGE ==============================
-title( '\bfExperiment 1 - with feedback loop', 'fontsize', 12 );           % ------------ title 
+title( '\bfExperiment 3 - increasing ramps - task 3', 'fontsize', 12 );           % ------------ title 
+
 xlabel( 'time', 'fontsize', 10 ); 
 ylabel('activity', 'fontsize', 10);
 
@@ -123,6 +124,7 @@ subplot( rTotal , cTotal ,        [ rPlot+gap:rPlot+gap+rSmall, ...
                                     3*cTotal+rPlot+gap:3*cTotal+rPlot+gap+rSmall, ...
                                     4*cTotal+rPlot+gap:4*cTotal+rPlot+gap+rSmall ] )
 
+
 margin  = ( max( prediction_tr( taskNr , time )  ) - min( prediction_tr( taskNr , time )  ) ) / 10;
 
 % dash margins
@@ -138,6 +140,10 @@ hold on
     % create dashline with function dashline from MathWorks
     diagonal = dashline([  m1 , m2 ] , [  m1 , m2 ], dash_gap,dash,dash_gap,dash,'Color', [ 70/255 70/255 70/255 ] , 'LineWidth', 1.5);
     
+    %diagonal = plot([  min( prediction_tr( taskNr , time )  ) - margin , max( prediction_tr( taskNr , time )  ) + margin ] , ...
+    %     [  min( prediction_tr( taskNr , time )  ) - margin , max( prediction_tr( taskNr , time )  ) + margin ], ...
+    %     '--', 'Color', [ 70/255 70/255 70/255 ] , 'LineWidth', 1.5)
+    
     plot( target_tr( taskNr , time ) , prediction_tr( taskNr , time ) , '.', 'Color', [ 241/255 225/255 10/255 ] , 'LineWidth', 0.5);
     plot( target_vl( taskNr , time ) , prediction_vl( taskNr , time ) , '.', 'Color', [ 143/255 100/255 0 ] , 'LineWidth', 0.5);
 hold off
@@ -145,14 +151,14 @@ hold off
 % change legend entries, i.e. omit entry of diagonal
 set(get(get(diagonal, 'Annotation'), 'LegendInformation'), 'IconDisplayStyle', 'off');
 
-%title( '\bfdesired vs. observed' , 'fontsize', 10 );
+title( '\bfdesired vs. observed' , 'fontsize', 10 );
 xlabel( 'desired', 'fontsize', 10 );   
 ylabel( 'observed', 'fontsize' , 10 );
 %set(gca,'XTickLabel','', 'FontSize', 8 );
 set(gca, 'FontSize', 8 );
 
-axis( [ min( prediction_vl( taskNr , time )  ) - margin      max( prediction_vl( taskNr , time )  ) + margin     ...
-        min( prediction_vl( taskNr , time )  ) - margin      max( prediction_vl( taskNr , time )  ) + margin] );
+axis( [ min( prediction_tr( taskNr , time )  ) - margin      max( prediction_tr( taskNr , time )  ) + margin     ...
+        min( prediction_tr( taskNr , time )  ) - margin      max( prediction_tr( taskNr , time )  ) + margin] );
 
 grid;
 axis square
@@ -162,10 +168,9 @@ legend( 'training', 'validation',   'Location', 'West');
 % ------------------------ ----------------------- ------------------------
 
 
-
 gap2 = 1;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ------------------------- Correlation in bar diagram  -------------------------
+% --------------------- Correlation in bar diagram  ----------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 subplot( rTotal , cTotal ,        [ rPlot+gap+rSmall+gap2+1:rPlot+gap+rSmall+gap2+1,                    ...
                                     cTotal+rPlot+gap+rSmall+gap2+1:cTotal+rPlot+gap+rSmall+gap2+1 ,     ...
@@ -183,33 +188,20 @@ hold off
 title( '\bfcorrelation', 'fontsize', 10 );
 
 % ----- uncomment this for no labels on bottom!!! + XTickLabel weg --------
- set(gca,'XTickLabel','');
+% set(gca,'XTickLabel','');
 set(gca, 'FontSize', 8 );
 set(gca, 'XTick', [1,2])
 set(gca, 'XTickLabel',{'tr','vl'})
 
 corr_bounds = [0.6, 1];
 
-%set(gca, 'YTick', [corr_bounds(1),0.75,corr_bounds(2)])
-%set(gca,'TickDir','out')
-%set(gca,'Box','off')
-%set(gca,'Visible','off')
-
-
-%xMargin         = 0.5;  % set axis around given data points within a
-%certain margin ---> value of 0.5 fills out the rectangle completely with
-%both bars.
 xMargin         = 0.7;  % set axis around given data points within a certain margin
 yMarginTop      = 1.02 ;
-%yMarginTop      = corr_bounds(2) ;
 yMarginBottom   = corr_bounds(1);
 axis( [ 1 - xMargin      2 + xMargin     ...
         yMarginBottom    yMarginTop ] );
 
-%text( 1 , 0.65 , num2str(y(1)) , 'FontSize' , 8 ,'rotation',90);
-%text( 2 , 0.65 , num2str(y(2)) , 'FontSize' , 8 ,'rotation',90);
 text_position = corr_bounds(1) + (corr_bounds(2) - corr_bounds(1))*(2/5);
 text( 1 , text_position , num2str(y(1)) , 'FontSize' , 8 ,'rotation',90);
 text( 2 , text_position , num2str(y(2)) , 'FontSize' , 8 ,'rotation',90);
 % ------------------------ ----------------------- ------------------------
-
