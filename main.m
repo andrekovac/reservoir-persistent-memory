@@ -1,4 +1,4 @@
-%% ----- setup -----
+%% ------------- Setup ------------------
 
 % make sure that your current folder is the project folder, i.e.
 % 'reservoir-persistent-memory' if you cloned without renaming from Github.
@@ -48,19 +48,31 @@ stdData.params.lag_cc           = 15;
 % 1. Simulation
 % 2. Plot task - time series / desired vs. observed / correlation
 
-
-%--- Sine curve WITH feedback loop
+%% Sine curve WITH feedback loop
 main_fct_task_with_fdb;
-plotResults_fctTask_WITH_Fdb_TASKS;
+close all;
+pause(0.1)
+fctTask_WITH_Fdb_plot_task;
+fctTask_WITH_Fdb_plot_task_zoom;
+fctTask_WITH_Fdb_plot_feedback_function;
 
-%--- Sine curve WITHOUT feeback loop - to observe the difference
+%% Sine curve WITHOUT feeback loop - to observe the difference
 %main_fct_task_without_fdb;
+%fctTask_WITHOUT_Fdb_plot_task;
+%fctTask_WITHOUT_Fdb_plot_task_zoom;
 
-%--- Three tasks (linear and nonlinear target function) WITH feedback loop
-%main_linear_nonLinearTask;
+%% Three tasks (linear and nonlinear target function) WITH feedback loop
+%main_linear_nonLinearTask;         % with feedback loop
+%linearTask_WITH_Fdb_plot_task1;
+%linearTask_WITH_Fdb_plot_task2;
+%linearTask_WITH_Fdb_plot_task3;
+%linearTask_plot_feedback_function;
 
-%--- Ramping task WITH feedback loop
+%% Ramping task WITH feedback loop
 %main_rampingTask_with_fdb;
+%rampTask_WITH_Fdb_plot_task1;
+%rampTask_WITH_Fdb_plot_task2;
+%rampTask_WITH_Fdb_plot_task3;
 
-%--- Ramping task WITHOUT feedback loop
+%% Ramping task WITHOUT feedback loop
 %main_rampingTask_without_fdb;
