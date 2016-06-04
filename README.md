@@ -4,8 +4,11 @@ This is the code for paper `Persistent Memory in Single Node Delay-Coupled Reser
 
 It contains the complete code for the simulation and the plot generation.
 
-[Example of a plot](https://github.com/Andruschenko/reservoir-persistent-memory/files/298929/E_publish_fctTask_WITH_fdb_TASK.pdf)
+#### Example plot
 
+It shows the desired vs. the observed signal of the trained reservoir on a simple task.
+
+![example_plot](https://cloud.githubusercontent.com/assets/1945462/15800954/2173aa22-2a87-11e6-9263-98f009ed4818.jpg)
 
 ## Run
 
