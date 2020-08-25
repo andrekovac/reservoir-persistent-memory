@@ -87,10 +87,10 @@ This project depends on some functions from the MATLAB Statistics and Machine Le
 
 ## Authors of the paper
 
-* [André David Kovac](https://github.com/Andruschenko) *
+* [André David Kovac](https://twitter.com/andrekovac) *
 * Maximilian Koall *
-* [Gordon Pipa](http://www.pipa.biz/)
-* [Hazem Toutounji](https://scholar.google.de/citations?user=agTxa24AAAAJ&hl=en)
+* [Gordon Pipa](https://twitter.com/PipaGordon)
+* [Hazem Toutounji](https://twitter.com/HazemToutounji)
 
 \* : Equal project contributors and creators of the code in this repository.
 
