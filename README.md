@@ -14,7 +14,7 @@ It shows the desired vs. the observed signal of the trained reservoir on the sim
 
 1. Clone the repository
 
-		git clone https://github.com/Andruschenko/reservoir-persistent-memory.git
+		git clone https://github.com/andrekovac/reservoir-persistent-memory.git
 
 2. MATLAB
 	* Open MATLAB
