@@ -88,7 +88,7 @@ This project depends on some functions from the MATLAB Statistics and Machine Le
 ## Authors of the paper
 
 * [André David Kovac](https://twitter.com/andrekovac) *
-* Maximilian Koall *
+* [Maximilian Koall](mailto:mkoall@uos.de) *
 * [Gordon Pipa](https://twitter.com/PipaGordon)
 * [Hazem Toutounji](https://twitter.com/HazemToutounji)
 
